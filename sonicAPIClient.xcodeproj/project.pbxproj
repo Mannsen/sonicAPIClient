@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C22FD2B216370A62009DA241 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2B116370A62009DA241 /* Cocoa.framework */; };
+		C22FD2BC16370A62009DA241 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2BA16370A62009DA241 /* InfoPlist.strings */; };
+		C22FD2BE16370A62009DA241 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2BD16370A62009DA241 /* main.m */; };
+		C22FD2C216370A63009DA241 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2C016370A63009DA241 /* Credits.rtf */; };
+		C22FD2C516370A63009DA241 /* SDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2C416370A63009DA241 /* SDAppDelegate.m */; };
+		C22FD2C816370A63009DA241 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2C616370A63009DA241 /* MainMenu.xib */; };
+		C22FD2D016370A63009DA241 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2CF16370A63009DA241 /* SenTestingKit.framework */; };
+		C22FD2D116370A63009DA241 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2B116370A62009DA241 /* Cocoa.framework */; };
+		C22FD2D916370A63009DA241 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2D716370A63009DA241 /* InfoPlist.strings */; };
+		C22FD2DC16370A63009DA241 /* sonicAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */; };
+		C22FD2E616372672009DA241 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2E516372672009DA241 /* CFNetwork.framework */; };
+		C22FD2E8163732B4009DA241 /* SDAppDelegate in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2E7163732B4009DA241 /* SDAppDelegate */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C22FD2D216370A63009DA241 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C22FD2A416370A62009DA241 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C22FD2AC16370A62009DA241;
+			remoteInfo = sonicAPIClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C22FD2AD16370A62009DA241 /* sonicAPIClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sonicAPIClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22FD2B116370A62009DA241 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C22FD2B416370A62009DA241 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C22FD2B516370A62009DA241 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C22FD2B616370A62009DA241 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C22FD2B916370A62009DA241 /* sonicAPIClient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sonicAPIClient-Info.plist"; sourceTree = "<group>"; };
+		C22FD2BB16370A62009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C22FD2BD16370A62009DA241 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C22FD2BF16370A62009DA241 /* sonicAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sonicAPIClient-Prefix.pch"; sourceTree = "<group>"; };
+		C22FD2C116370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C22FD2C316370A63009DA241 /* SDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAppDelegate.h; sourceTree = "<group>"; };
+		C22FD2C416370A63009DA241 /* SDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAppDelegate.m; sourceTree = "<group>"; };
+		C22FD2C716370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C22FD2CE16370A63009DA241 /* sonicAPIClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sonicAPIClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22FD2CF16370A63009DA241 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C22FD2D616370A63009DA241 /* sonicAPIClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sonicAPIClientTests-Info.plist"; sourceTree = "<group>"; };
+		C22FD2D816370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C22FD2DA16370A63009DA241 /* sonicAPIClientTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sonicAPIClientTests.h; sourceTree = "<group>"; };
+		C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sonicAPIClientTests.m; sourceTree = "<group>"; };
+		C22FD2E516372672009DA241 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C22FD2E7163732B4009DA241 /* SDAppDelegate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SDAppDelegate; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C22FD2AA16370A62009DA241 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22FD2E616372672009DA241 /* CFNetwork.framework in Frameworks */,
+				C22FD2B216370A62009DA241 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22FD2CA16370A63009DA241 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22FD2D016370A63009DA241 /* SenTestingKit.framework in Frameworks */,
+				C22FD2D116370A63009DA241 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C22FD2A216370A62009DA241 = {
+			isa = PBXGroup;
+			children = (
+				C22FD2E516372672009DA241 /* CFNetwork.framework */,
+				C22FD2B716370A62009DA241 /* sonicAPIClient */,
+				C22FD2D416370A63009DA241 /* sonicAPIClientTests */,
+				C22FD2B016370A62009DA241 /* Frameworks */,
+				C22FD2AE16370A62009DA241 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C22FD2AE16370A62009DA241 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2AD16370A62009DA241 /* sonicAPIClient.app */,
+				C22FD2CE16370A63009DA241 /* sonicAPIClientTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C22FD2B016370A62009DA241 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2B116370A62009DA241 /* Cocoa.framework */,
+				C22FD2CF16370A63009DA241 /* SenTestingKit.framework */,
+				C22FD2B316370A62009DA241 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C22FD2B316370A62009DA241 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2B416370A62009DA241 /* AppKit.framework */,
+				C22FD2B516370A62009DA241 /* CoreData.framework */,
+				C22FD2B616370A62009DA241 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C22FD2B716370A62009DA241 /* sonicAPIClient */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2C316370A63009DA241 /* SDAppDelegate.h */,
+				C22FD2C416370A63009DA241 /* SDAppDelegate.m */,
+				C22FD2E7163732B4009DA241 /* SDAppDelegate */,
+				C22FD2C616370A63009DA241 /* MainMenu.xib */,
+				C22FD2B816370A62009DA241 /* Supporting Files */,
+			);
+			path = sonicAPIClient;
+			sourceTree = "<group>";
+		};
+		C22FD2B816370A62009DA241 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2B916370A62009DA241 /* sonicAPIClient-Info.plist */,
+				C22FD2BA16370A62009DA241 /* InfoPlist.strings */,
+				C22FD2BD16370A62009DA241 /* main.m */,
+				C22FD2BF16370A62009DA241 /* sonicAPIClient-Prefix.pch */,
+				C22FD2C016370A63009DA241 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C22FD2D416370A63009DA241 /* sonicAPIClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2DA16370A63009DA241 /* sonicAPIClientTests.h */,
+				C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */,
+				C22FD2D516370A63009DA241 /* Supporting Files */,
+			);
+			path = sonicAPIClientTests;
+			sourceTree = "<group>";
+		};
+		C22FD2D516370A63009DA241 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C22FD2D616370A63009DA241 /* sonicAPIClientTests-Info.plist */,
+				C22FD2D716370A63009DA241 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C22FD2AC16370A62009DA241 /* sonicAPIClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22FD2DF16370A63009DA241 /* Build configuration list for PBXNativeTarget "sonicAPIClient" */;
+			buildPhases = (
+				C22FD2A916370A62009DA241 /* Sources */,
+				C22FD2AA16370A62009DA241 /* Frameworks */,
+				C22FD2AB16370A62009DA241 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sonicAPIClient;
+			productName = sonicAPIClient;
+			productReference = C22FD2AD16370A62009DA241 /* sonicAPIClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C22FD2CD16370A63009DA241 /* sonicAPIClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C22FD2E216370A63009DA241 /* Build configuration list for PBXNativeTarget "sonicAPIClientTests" */;
+			buildPhases = (
+				C22FD2C916370A63009DA241 /* Sources */,
+				C22FD2CA16370A63009DA241 /* Frameworks */,
+				C22FD2CB16370A63009DA241 /* Resources */,
+				C22FD2CC16370A63009DA241 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C22FD2D316370A63009DA241 /* PBXTargetDependency */,
+			);
+			name = sonicAPIClientTests;
+			productName = sonicAPIClientTests;
+			productReference = C22FD2CE16370A63009DA241 /* sonicAPIClientTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C22FD2A416370A62009DA241 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SD;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Maik Mann";
+			};
+			buildConfigurationList = C22FD2A716370A62009DA241 /* Build configuration list for PBXProject "sonicAPIClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C22FD2A216370A62009DA241;
+			productRefGroup = C22FD2AE16370A62009DA241 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C22FD2AC16370A62009DA241 /* sonicAPIClient */,
+				C22FD2CD16370A63009DA241 /* sonicAPIClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C22FD2AB16370A62009DA241 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22FD2BC16370A62009DA241 /* InfoPlist.strings in Resources */,
+				C22FD2C216370A63009DA241 /* Credits.rtf in Resources */,
+				C22FD2C816370A63009DA241 /* MainMenu.xib in Resources */,
+				C22FD2E8163732B4009DA241 /* SDAppDelegate in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22FD2CB16370A63009DA241 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22FD2D916370A63009DA241 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C22FD2CC16370A63009DA241 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C22FD2A916370A62009DA241 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22FD2BE16370A62009DA241 /* main.m in Sources */,
+				C22FD2C516370A63009DA241 /* SDAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C22FD2C916370A63009DA241 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22FD2DC16370A63009DA241 /* sonicAPIClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C22FD2D316370A63009DA241 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C22FD2AC16370A62009DA241 /* sonicAPIClient */;
+			targetProxy = C22FD2D216370A63009DA241 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C22FD2BA16370A62009DA241 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C22FD2BB16370A62009DA241 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C22FD2C016370A63009DA241 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C22FD2C116370A63009DA241 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C22FD2C616370A63009DA241 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C22FD2C716370A63009DA241 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		C22FD2D716370A63009DA241 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C22FD2D816370A63009DA241 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C22FD2DD16370A63009DA241 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C22FD2DE16370A63009DA241 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C22FD2E016370A63009DA241 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sonicAPIClient/sonicAPIClient-Prefix.pch";
+				INFOPLIST_FILE = "sonicAPIClient/sonicAPIClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C22FD2E116370A63009DA241 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sonicAPIClient/sonicAPIClient-Prefix.pch";
+				INFOPLIST_FILE = "sonicAPIClient/sonicAPIClient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C22FD2E316370A63009DA241 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sonicAPIClient.app/Contents/MacOS/sonicAPIClient";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sonicAPIClient/sonicAPIClient-Prefix.pch";
+				INFOPLIST_FILE = "sonicAPIClientTests/sonicAPIClientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C22FD2E416370A63009DA241 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sonicAPIClient.app/Contents/MacOS/sonicAPIClient";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sonicAPIClient/sonicAPIClient-Prefix.pch";
+				INFOPLIST_FILE = "sonicAPIClientTests/sonicAPIClientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C22FD2A716370A62009DA241 /* Build configuration list for PBXProject "sonicAPIClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22FD2DD16370A63009DA241 /* Debug */,
+				C22FD2DE16370A63009DA241 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C22FD2DF16370A63009DA241 /* Build configuration list for PBXNativeTarget "sonicAPIClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22FD2E016370A63009DA241 /* Debug */,
+				C22FD2E116370A63009DA241 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C22FD2E216370A63009DA241 /* Build configuration list for PBXNativeTarget "sonicAPIClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22FD2E316370A63009DA241 /* Debug */,
+				C22FD2E416370A63009DA241 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C22FD2A416370A62009DA241 /* Project object */;
+}

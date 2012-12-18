@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sonicAPIClient/SDAppDelegate.m"
-         timestampString = "372721130.578176"
+         timestampString = "377562124.373179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "35"
-         endingLineNumber = "35"
+         startingLineNumber = "11"
+         endingLineNumber = "11"
          landmarkName = "@implementation SDAppDelegate"
          landmarkType = "3">
       </FileBreakpoint>
@@ -21,12 +21,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sonicAPIClient/SDAppDelegate.m"
-         timestampString = "372721689.393069"
+         timestampString = "377562124.373179"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
          landmarkName = "-applicationDidFinishLaunching:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "sonicAPIClient/SDAppDelegate.m"
+         timestampString = "377562124.373179"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-sendUpLoadRequest"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "sonicAPIClient/SDAppDelegate.m"
+         timestampString = "377562124.373179"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
+         landmarkName = "-connection:needNewBodyStream:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

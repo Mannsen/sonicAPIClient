@@ -8,76 +8,118 @@
 
 #import "SDAppDelegate.h"
 
-void clientCB(CFReadStreamRef stream, CFStreamEventType event, void *myPtr)
-{
-     NSLog(@" clientCB");
-    switch(event) {
-        case kCFStreamEventHasBytesAvailable:{
-            UInt8 buf[1024];
-            CFIndex bytesRead = CFReadStreamRead(stream, buf, 1024);
-            if (bytesRead > 0) {
-                NSLog(@"Server has data to read! %i", bytesRead);
-                NSString* byteString = [[NSString alloc] initWithBytes:buf length:bytesRead encoding:NSASCIIStringEncoding ];
-                NSLog(byteString);
-            }
-            break;
-        }
-        case kCFStreamEventErrorOccurred:
-            NSLog(@"A Read Stream Error Has Occurred!");
-        case kCFStreamEventEndEncountered:
-            NSLog(@"A Read Stream Event End!");
-        default:
-            break;
-    }
-    
-}
-
 @implementation SDAppDelegate
 
-
-- (void) streamCallBack:(CFReadStreamRef) stream event:(CFStreamEventType)event myPtr:(void *)myPtr
-{
-    NSLog(@" streamCallBack");
-    
-}
-
+@synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    NSString* accessID = @"a43d2e2e-817d-4602-b649-9858e959d8cc";
-    NSString* $taskUrl = @"analyze/key";
-    
-   
-    CFStringRef url = CFSTR("https://api.sonicAPI.com/analyze/key");
-    CFURLRef myURL = CFURLCreateWithString(kCFAllocatorDefault, url, NULL);
-    CFStringRef requestMethod = CFSTR("POST");
-    CFStringRef bodyString = CFSTR("blocking=true&access_id=a43d2e2e-817d-4602-b649-9858e959d8cc&format=json&input_file=http://beta:gFSeULWzlw1@sonicAPI.com/music/brown_eyes_by_ueberschall.mp3");
-        
-    CFDataRef bodyData = CFStringCreateExternalRepresentation(kCFAllocatorDefault, bodyString, kCFStringEncodingUTF8, 0);
-    CFStringRef headerFieldName = CFSTR("");
-    CFStringRef headerFieldValue = CFSTR("");
-    
-    CFHTTPMessageRef myRequest = CFHTTPMessageCreateRequest(kCFAllocatorDefault,requestMethod, myURL, kCFHTTPVersion1_0);
-    CFHTTPMessageSetBody(myRequest, bodyData);
-    CFHTTPMessageSetHeaderFieldValue(myRequest, headerFieldName, headerFieldValue);
-    CFReadStreamRef myReadStream =CFReadStreamCreateForHTTPRequest(kCFAllocatorDefault, myRequest);
-    
-    CFOptionFlags registeredEvents = kCFStreamEventHasBytesAvailable | kCFStreamEventErrorOccurred | kCFStreamEventEndEncountered;
-    CFStreamClientContext myContext = {
-        0,
-        (__bridge void *)(self),
-        (void *(*)(void *info))CFRetain,
-        (void (*)(void *info))CFRelease,
-        (CFStringRef (*)(void *info))CFCopyDescription
-    };
+    [self sendUpLoadRequest];
+    //[self sendBlockingAPIRequest];
 
-    if(CFReadStreamSetClient(myReadStream, registeredEvents, clientCB, &myContext))
-    {
-        CFReadStreamScheduleWithRunLoop(myReadStream, CFRunLoopGetCurrent(), kCFRunLoopCommonModes);
-    }
+}
+- (void) sendBlockingAPIRequest
+{
+    NSLog(@"sendBlockingAPIRequest");
     
-    CFReadStreamOpen(myReadStream);    
+    NSString* url = @"http://api.sonicapi.com/analyze/key?access_id=a43d2e2e-817d-4602-b649-9858e959d8cc&input_file=http://www.sonicapi.com/music/brown_eyes_by_ueberschall.mp3";
+    //NSURLRequest* request = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setTimeoutInterval:10.0];
+    [request setHTTPMethod:@"POST"];
+    
+    NSURLConnection* connection =  [[NSURLConnection alloc] init ];
+    connection = [connection initWithRequest:request delegate:self startImmediately:true];
+}
+
+- (void) sendUpLoadRequest
+{
+    NSLog(@"sendUpLoadRequest");
+    NSString* url = @"http://api.sonicapi.com/file/upload?access_id=a43d2e2e-817d-4602-b649-9858e959d8cc";
+    
+    NSData* file = [[NSData alloc] initWithContentsOfFile:@"/Users/maikmann/Desktop/ApiTest.mp3"];
+    NSString* filename = @"ApiTest.mp3";
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+         
+    NSString *boundary = [NSString stringWithString:@"----------------------------cb8bd90f140f"];
+    NSMutableData *postData = [[NSMutableData alloc] init];
+   
+    [postData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n", filename]dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithFormat:@"Content-Type: audio\r\n" ] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithString:@"Content-Transfer-Encoding: binary\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postData appendData: [NSData dataWithData:file]];
+    [postData appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postData appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+       // Append
+    [request setHTTPBody:postData ];
+    
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    NSString *contentLength = [NSString stringWithFormat:@"%ld", [postData length]];
+    [request addValue:contentLength forHTTPHeaderField: @"Content-Length"];
+    
+    NSURLConnection* connection =  [[NSURLConnection alloc] initWithRequest:request delegate:self];
+   
+}
+
+- (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
+{
+    NSLog(@"needNewBodyStream");
+}
+
+
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    NSLog(@"willSendRequestForAuthenticationChallenge");
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog( [[error userInfo] description] );
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse;
+{
+    NSLog(@"1");
+    return nil;
+}
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"Received: Header");
+    NSLog( [response MIMEType]);
+    NSLog( [NSHTTPURLResponse localizedStringForStatusCode: [(NSHTTPURLResponse*)response statusCode ]]);
+    lastReceivedResonse = response;
+
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"Received: Body");
+    NSString* dataString = [NSString stringWithCString:[data bytes]];
+    NSLog( dataString );
+}
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
+{
+    NSLog(@"SEND Request to ");
+    NSLog([[request URL] absoluteString]);
+  
+    return request;
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"Finished Request");
+}
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    NSLog(@"%f loaded", ((float)totalBytesWritten/(float)totalBytesExpectedToWrite)*100);
 }
 
 

@@ -14,6 +14,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
     [self sendUpLoadRequest];
     //[self sendBlockingAPIRequest];
 

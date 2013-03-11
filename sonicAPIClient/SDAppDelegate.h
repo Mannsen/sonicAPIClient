@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SDSonicAPIProvider.h"
 
-@interface SDAppDelegate : NSObject <NSApplicationDelegate, NSURLConnectionDelegate>
+@interface SDAppDelegate : NSObject <NSApplicationDelegate>
 {
-    NSHTTPURLResponse* lastReceivedResonse;
+    SDSonicAPIProvider* m_pSApiP;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -20,17 +21,6 @@
 - (void) sendUpLoadRequest;
 
 
-- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
-
-
-- (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request;
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse;
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
-- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse;
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
 
 
 

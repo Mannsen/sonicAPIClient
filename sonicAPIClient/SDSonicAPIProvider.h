@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SDSonicAPITask.h"
 
+#import "SDSonicAPITask.h"
+#import "SDSonicAPIConnectionHandler.h"
 
 @protocol SDSonicAPITask_CallbackDelegate <NSObject>
 
@@ -18,18 +19,28 @@
 @end
 
 
-@interface SDSonicAPIProvider : NSObject
+@interface SDSonicAPIProvider : NSObject <SDSonicAPIConnectionHandler_CallbackDelegate>
 {
-
-
+    NSString* baseURL_;
+    NSString* accessID_;
+    NSString *boundary_;
+    SDSonicAPIConnectionHandler* connectionHandler_;
+    
+    SDSonicAPITask* currentTask_;
+    id<SDSonicAPITask_CallbackDelegate> currentDelegate_;
 }
 
-+ (void)     doTask:(SDSonicAPITask*) onFileAtPath:(NSString*)filePath inform:(id <SDSonicAPITask_CallbackDelegate>) delegate;
-+ (void)     doTask:(SDSonicAPITask*) onFileWithID:(NSString*)fileID inform:(id <SDSonicAPITask_CallbackDelegate>) delegate;
+- (id)      init;
+- (id)      initWithAccessID:(NSString*)accessID;
 
-- (BOOL*)     doTask:(SDSonicAPITask*) onFileAtPath:(NSString*) filePath ;
-- (BOOL*)     doTask:(SDSonicAPITask*) onFileWithID:(NSString*) fileID ;
+- (void)    doTask:(SDSonicAPITask*)task inform:(id <SDSonicAPITask_CallbackDelegate>) delegate;
+- (BOOL*)   doTask:(SDSonicAPITask*)task;
 
+- (NSData*) buildRequestBody:(SDSonicAPITask*)task;
+
+// connection handler response callback
+- (void)    sucessfullyRequestResponse:(NSData *) responseData;
+- (void)    failedRequestResponse;
 
 
 @end

@@ -8,11 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SDSonicAPIConnectionHandler_CallbackDelegate <NSObject>
+
+-(void) sucessfullyRequestResponse: (NSData*) responseData;
+-(void) failedRequestResponse;
+
+@end
+
 @interface SDSonicAPIConnectionHandler : NSObject <NSURLConnectionDelegate>
 {
-    NSHTTPURLResponse* lastReceivedResonse;
+    NSHTTPURLResponse*  lastReceivedResonse_;
+    NSURLConnection*    connection_;
+    NSData*             internalResponseCache_;
+    
+    id<SDSonicAPIConnectionHandler_CallbackDelegate> responseDelegate_;
 }
 
+- (id) initWithResponseDelegate:(id<SDSonicAPIConnectionHandler_CallbackDelegate>) delegate;
+- (void)sendRequest:(NSMutableURLRequest*) request;
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;

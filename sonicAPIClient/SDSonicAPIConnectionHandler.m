@@ -10,19 +10,25 @@
 
 @implementation SDSonicAPIConnectionHandler
 
-
-- (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
+- (id) initWithResponseDelegate:(id<SDSonicAPIConnectionHandler_CallbackDelegate>) delegate
 {
-    NSLog(@"needNewBodyStream");
+    if (self = [self init])
+    {
+        responseDelegate_ = delegate;
+    }
+    
+    return self;
 }
 
-/*
- - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
- {
- NSLog(@"willSendRequestForAuthenticationChallenge");
- [performDefaultHandlingForAuthenticationChallenge challenge];
- }
- */
+- (void) sendRequest:(NSMutableURLRequest*) request
+{
+    connection_ =  [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+- (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
+{
+    return NULL;
+}
+
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
 {
     return false;
@@ -30,42 +36,42 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog( [[error userInfo] description] );
+    if ( responseDelegate_ != NULL)
+    {
+        [responseDelegate_  failedRequestResponse];
+    }
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse;
 {
-    NSLog(@"1");
-    return nil;
+    return NULL;
 }
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"Received: Header");
-    NSLog( [response MIMEType]);
-    NSLog( [NSHTTPURLResponse localizedStringForStatusCode: [(NSHTTPURLResponse*)response statusCode ]]);
-    lastReceivedResonse = response;
-    
+    lastReceivedResonse_ = response;
 }
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"Received: Body");
-    NSString* dataString = [NSString stringWithCString:[data bytes]];
-    NSLog( dataString );
+    internalResponseCache_ = data;
 }
+
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
 {
-    NSLog(@"SEND Request to ");
-    NSLog([[request URL] absoluteString]);
-    
     return request;
 }
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"Finished Request");
+    if ( responseDelegate_ != NULL)
+    {
+        [responseDelegate_  sucessfullyRequestResponse:internalResponseCache_];
+    }
 }
 - (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
-    NSLog(@"%f loaded", ((float)totalBytesWritten/(float)totalBytesExpectedToWrite)*100);
+    //NSLog(@"%f loaded", ((float)totalBytesWritten/(float)totalBytesExpectedToWrite)*100);
 }
 
 

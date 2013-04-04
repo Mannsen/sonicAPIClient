@@ -13,46 +13,44 @@
     enum Task_t
     {
         Task_Upload_File,
-        Task_Download_File,
-        
+        Task_Download_File,        
         Task_Process_Elastique,
         Task_Process_ElastiqueTune,
         Task_Process_Reverb,
         Task_Analyze_Key,
         Task_Analyze_Loudness,
         Task_Analyze_Melody,
-        Task_Analyze_Tempo,
-        
-        Task_NumOfTasks
-        
+        Task_Analyze_Tempo       
     };
-
-    NSData* result;
-    
 }
 
-+(SDSonicAPITask*) getTaskForType: (enum Task_t)type;
+@property(nonatomic)        enum Task_t taskType_;
+@property(nonatomic,assign) NSData*     result_;
 
--(NSData*) getResult;
++ (NSString*) getURLForTask:(enum Task_t)task_t;
 
 @end
 
 @interface SDSonicAPIUploadFileTask: SDSonicAPITask
 {
-    NSString* m_filePath;
+    NSData* fileData_;
 }
 
--(void)initWithPath:(NSString*) path;
--(NSData*) getResult;
+@property (nonatomic) NSString* filePath_;
+
+- (id) initWithPath:(NSString*) path;
+- (NSString*) getFileName;
+- (NSData*) getFileRawData;
+- (NSData*) getResult;
 
 @end
 
 @interface SDSonicAPIDownloadFileTask: SDSonicAPITask
-{
-    NSString* m_fileID;
-}
 
--(void)initWithFileID:(NSString*) fileID;
--(NSData*) getResult;
+@property (nonatomic) NSString* fileID_;
+
+- (id) init;
+- (id) initWithFileID:(NSString*) fileID;
+- (NSData*) getResult;
 
 @end

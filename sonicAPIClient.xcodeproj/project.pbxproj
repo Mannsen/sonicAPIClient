@@ -10,7 +10,6 @@
 		C22FD2B216370A62009DA241 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2B116370A62009DA241 /* Cocoa.framework */; };
 		C22FD2BC16370A62009DA241 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2BA16370A62009DA241 /* InfoPlist.strings */; };
 		C22FD2BE16370A62009DA241 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2BD16370A62009DA241 /* main.m */; };
-		C22FD2C216370A63009DA241 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2C016370A63009DA241 /* Credits.rtf */; };
 		C22FD2C516370A63009DA241 /* SDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2C416370A63009DA241 /* SDAppDelegate.m */; };
 		C22FD2C816370A63009DA241 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2C616370A63009DA241 /* MainMenu.xib */; };
 		C22FD2D016370A63009DA241 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2CF16370A63009DA241 /* SenTestingKit.framework */; };
@@ -18,10 +17,10 @@
 		C22FD2D916370A63009DA241 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2D716370A63009DA241 /* InfoPlist.strings */; };
 		C22FD2DC16370A63009DA241 /* sonicAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */; };
 		C22FD2E616372672009DA241 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2E516372672009DA241 /* CFNetwork.framework */; };
-		C22FD2E8163732B4009DA241 /* SDAppDelegate in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2E7163732B4009DA241 /* SDAppDelegate */; };
 		C2B0E97216EA1DB800508DE2 /* SDSonicAPIProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B0E97116EA1DB800508DE2 /* SDSonicAPIProvider.m */; };
 		C2B0E97516EA1E4400508DE2 /* SDSonicAPIConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B0E97416EA1E4300508DE2 /* SDSonicAPIConnectionHandler.m */; };
 		C2B0E97816EA230A00508DE2 /* SDSonicAPITask.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B0E97716EA230A00508DE2 /* SDSonicAPITask.m */; };
+		C2B5BCF31773A0F500365B35 /* SDSonicAPIFile.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B5BCF21773A0F500365B35 /* SDSonicAPIFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +42,6 @@
 		C22FD2B916370A62009DA241 /* sonicAPIClient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sonicAPIClient-Info.plist"; sourceTree = "<group>"; };
 		C22FD2BB16370A62009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C22FD2BD16370A62009DA241 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C22FD2BF16370A62009DA241 /* sonicAPIClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sonicAPIClient-Prefix.pch"; sourceTree = "<group>"; };
-		C22FD2C116370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		C22FD2C316370A63009DA241 /* SDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAppDelegate.h; sourceTree = "<group>"; };
 		C22FD2C416370A63009DA241 /* SDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAppDelegate.m; sourceTree = "<group>"; };
 		C22FD2C716370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -55,13 +52,15 @@
 		C22FD2DA16370A63009DA241 /* sonicAPIClientTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sonicAPIClientTests.h; sourceTree = "<group>"; };
 		C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sonicAPIClientTests.m; sourceTree = "<group>"; };
 		C22FD2E516372672009DA241 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		C22FD2E7163732B4009DA241 /* SDAppDelegate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SDAppDelegate; sourceTree = "<group>"; };
 		C2B0E97016EA1DB800508DE2 /* SDSonicAPIProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSonicAPIProvider.h; sourceTree = "<group>"; };
 		C2B0E97116EA1DB800508DE2 /* SDSonicAPIProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSonicAPIProvider.m; sourceTree = "<group>"; };
 		C2B0E97316EA1E4300508DE2 /* SDSonicAPIConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSonicAPIConnectionHandler.h; sourceTree = "<group>"; };
 		C2B0E97416EA1E4300508DE2 /* SDSonicAPIConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSonicAPIConnectionHandler.m; sourceTree = "<group>"; };
 		C2B0E97616EA230A00508DE2 /* SDSonicAPITask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSonicAPITask.h; sourceTree = "<group>"; };
 		C2B0E97716EA230A00508DE2 /* SDSonicAPITask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSonicAPITask.m; sourceTree = "<group>"; };
+		C2B5BCF11773A0F500365B35 /* SDSonicAPIFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSonicAPIFile.h; sourceTree = "<group>"; };
+		C2B5BCF21773A0F500365B35 /* SDSonicAPIFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSonicAPIFile.m; sourceTree = "<group>"; };
+		C2B5BCF41773A1D500365B35 /* sonicAPIClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sonicAPIClient-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,14 +128,12 @@
 		C22FD2B716370A62009DA241 /* sonicAPIClient */ = {
 			isa = PBXGroup;
 			children = (
-				C22FD2C016370A63009DA241 /* Credits.rtf */,
-				C22FD2BF16370A62009DA241 /* sonicAPIClient-Prefix.pch */,
+				C2B5BCF41773A1D500365B35 /* sonicAPIClient-Prefix.pch */,
 				C22FD2BD16370A62009DA241 /* main.m */,
 				C22FD2B916370A62009DA241 /* sonicAPIClient-Info.plist */,
 				C22FD2BA16370A62009DA241 /* InfoPlist.strings */,
 				C22FD2C316370A63009DA241 /* SDAppDelegate.h */,
 				C22FD2C416370A63009DA241 /* SDAppDelegate.m */,
-				C22FD2E7163732B4009DA241 /* SDAppDelegate */,
 				C22FD2C616370A63009DA241 /* MainMenu.xib */,
 				C22FD2B816370A62009DA241 /* sonicAPIInterface */,
 			);
@@ -146,6 +143,8 @@
 		C22FD2B816370A62009DA241 /* sonicAPIInterface */ = {
 			isa = PBXGroup;
 			children = (
+				C2B5BCF11773A0F500365B35 /* SDSonicAPIFile.h */,
+				C2B5BCF21773A0F500365B35 /* SDSonicAPIFile.m */,
 				C2B0E97016EA1DB800508DE2 /* SDSonicAPIProvider.h */,
 				C2B0E97116EA1DB800508DE2 /* SDSonicAPIProvider.m */,
 				C2B0E97316EA1E4300508DE2 /* SDSonicAPIConnectionHandler.h */,
@@ -248,9 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C22FD2BC16370A62009DA241 /* InfoPlist.strings in Resources */,
-				C22FD2C216370A63009DA241 /* Credits.rtf in Resources */,
 				C22FD2C816370A63009DA241 /* MainMenu.xib in Resources */,
-				C22FD2E8163732B4009DA241 /* SDAppDelegate in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +287,7 @@
 				C2B0E97216EA1DB800508DE2 /* SDSonicAPIProvider.m in Sources */,
 				C2B0E97516EA1E4400508DE2 /* SDSonicAPIConnectionHandler.m in Sources */,
 				C2B0E97816EA230A00508DE2 /* SDSonicAPITask.m in Sources */,
+				C2B5BCF31773A0F500365B35 /* SDSonicAPIFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,14 +316,6 @@
 				C22FD2BB16370A62009DA241 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C22FD2C016370A63009DA241 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C22FD2C116370A63009DA241 /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		C22FD2C616370A63009DA241 /* MainMenu.xib */ = {

@@ -39,11 +39,6 @@
 
 }
 
--(void) doTask:(SDSonicAPITask*)task onFileWithID:(NSString*)fileID inform:(id <SDSonicAPITask_CallbackDelegate>) delegate
-{
-
-}
-
 - (NSData*) buildRequestBody:(SDSonicAPITask*)task
 {
     NSMutableData *postData = [[NSMutableData alloc] init];
@@ -88,7 +83,7 @@
 
 - (void) sucessfullyRequestResponse:(NSData *)responseData
 {
-    [currentTask_ setResult_: responseData];
+    [currentTask_ setResult: responseData];
     [currentDelegate_ taskSuccessfullyDone: currentTask_];
 }
 

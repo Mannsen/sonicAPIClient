@@ -47,18 +47,38 @@
     return url;
 }
 
+- (id) initTaskWithFile:(SDSonicAPIFile*) file
+{
+    self = [super init];
+    
+    if(self != NULL)
+    {
+        self.file_ = file;
+    }
+    
+    return self;
+}
+
+- (void) setResult:(NSData*) result
+{
+    result_ = result;
+}
+
+- (NSData*) getResult
+{
+    return result_;
+}
 
 @end
 
 @implementation SDSonicAPIUploadFileTask
 
--(id)initWithPath:(NSString*) path
+-(id)initTaskWithFile:(SDSonicAPIFile*) file
 {
-    self = [super init];
+    self = [super initTaskWithFile:file];
     
     if (self != NULL) {
         self.taskType_ = Task_Upload_File;
-        self.filePath_ = path;
     }
     
     return self;
@@ -66,19 +86,32 @@
 
 - (NSString*) getFileName
 {
-    NSURL* url = [[NSURL alloc] initWithString: self.filePath_];
+    NSURL* url = [[NSURL alloc] initWithString: [self.file_ getFilePath]];
     return [url lastPathComponent];
 }
-
+ 
 - (NSData*) getFileRawData
 {
-    fileData_ = [[NSData alloc] initWithContentsOfFile:self.filePath_];
+    fileData_ = [[NSData alloc] initWithContentsOfFile:[self.file_ getFilePath]];
     return fileData_;
 }
 
--(NSData*) getResult
+- (void) setResult:(NSData *)result
 {
-    return NULL;
+    [super setResult:result];
+    
+    NSError* xmlParseError;
+    NSXMLDocument* xmlResult = [[NSXMLDocument alloc] initWithData:[self getResult] options:NSXMLDocumentTidyXML error:&xmlParseError];
+    NSArray* childs = [[xmlResult rootElement] children];
+    
+    
+    for( NSXMLElement* child in childs )
+    {
+        if( [[child name] isEqualToString: @"file" ] )
+        {
+            NSLog( @"%@", [[child attributeForName:@"file_id"] objectValue] );
+        }
+    }
 }
 
 @end
@@ -97,11 +130,6 @@
     self = [self init];
     self.fileID_ = fileID;
     return self;
-}
-
--(NSData*) getResult;
-{
-    return NULL;
 }
 
 @end

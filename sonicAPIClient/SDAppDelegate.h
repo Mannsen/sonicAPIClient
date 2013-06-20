@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SDSonicAPIProvider.h"
+#import "SDSonicAPIFile.h"
 
 @interface SDAppDelegate : NSObject <NSApplicationDelegate, SDSonicAPITask_CallbackDelegate>
 {

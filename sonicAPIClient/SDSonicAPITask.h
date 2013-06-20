@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SDSonicAPIFile.h"
 
 @interface SDSonicAPITask: NSObject
 {    
@@ -22,12 +23,18 @@
         Task_Analyze_Melody,
         Task_Analyze_Tempo       
     };
+    
+    NSData* result_;
+    
 }
 
-@property(nonatomic)        enum Task_t taskType_;
-@property(nonatomic,assign) NSData*     result_;
+@property(nonatomic)    enum Task_t taskType_;
+@property(retain)       SDSonicAPIFile* file_;
 
 + (NSString*) getURLForTask:(enum Task_t)task_t;
+- (id) initTaskWithFile:(SDSonicAPIFile*) file;
+- (void) setResult:(NSData*) result;
+- (NSData*) getResult;
 
 @end
 
@@ -36,12 +43,11 @@
     NSData* fileData_;
 }
 
-@property (nonatomic) NSString* filePath_;
+- (id) initTaskWithFile:(SDSonicAPIFile*) file;
 
-- (id) initWithPath:(NSString*) path;
 - (NSString*) getFileName;
 - (NSData*) getFileRawData;
-- (NSData*) getResult;
+- (void) setResult:(NSData *)result;
 
 @end
 
@@ -51,6 +57,5 @@
 
 - (id) init;
 - (id) initWithFileID:(NSString*) fileID;
-- (NSData*) getResult;
 
 @end

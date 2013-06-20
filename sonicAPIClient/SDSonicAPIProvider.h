@@ -34,9 +34,8 @@
 - (id)      initWithAccessID:(NSString*)accessID;
 
 - (void)    doTask:(SDSonicAPITask*)task inform:(id <SDSonicAPITask_CallbackDelegate>) delegate;
-- (BOOL*)   doTask:(SDSonicAPITask*)task;
 
-- (NSData*) buildRequestBody:(SDSonicAPITask*)task;
+// THIS SHOULD BE PRIVATE - (NSData*) buildRequestBody:(SDSonicAPITask*)task;
 
 // connection handler response callback
 - (void)    sucessfullyRequestResponse:(NSData *) responseData;

@@ -17,7 +17,7 @@
 
 @interface SDSonicAPIConnectionHandler : NSObject <NSURLConnectionDelegate>
 {
-    NSHTTPURLResponse*  lastReceivedResonse_;
+    NSURLResponse*  lastReceivedResonse_;
     NSURLConnection*    connection_;
     NSData*             internalResponseCache_;
     

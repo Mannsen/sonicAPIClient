@@ -14,8 +14,6 @@
 		C22FD2C816370A63009DA241 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2C616370A63009DA241 /* MainMenu.xib */; };
 		C22FD2D016370A63009DA241 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2CF16370A63009DA241 /* SenTestingKit.framework */; };
 		C22FD2D116370A63009DA241 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2B116370A62009DA241 /* Cocoa.framework */; };
-		C22FD2D916370A63009DA241 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C22FD2D716370A63009DA241 /* InfoPlist.strings */; };
-		C22FD2DC16370A63009DA241 /* sonicAPIClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */; };
 		C22FD2E616372672009DA241 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22FD2E516372672009DA241 /* CFNetwork.framework */; };
 		C2B0E97216EA1DB800508DE2 /* SDSonicAPIProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B0E97116EA1DB800508DE2 /* SDSonicAPIProvider.m */; };
 		C2B0E97516EA1E4400508DE2 /* SDSonicAPIConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B0E97416EA1E4300508DE2 /* SDSonicAPIConnectionHandler.m */; };
@@ -47,10 +45,6 @@
 		C22FD2C716370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C22FD2CE16370A63009DA241 /* sonicAPIClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sonicAPIClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22FD2CF16370A63009DA241 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		C22FD2D616370A63009DA241 /* sonicAPIClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sonicAPIClientTests-Info.plist"; sourceTree = "<group>"; };
-		C22FD2D816370A63009DA241 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C22FD2DA16370A63009DA241 /* sonicAPIClientTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sonicAPIClientTests.h; sourceTree = "<group>"; };
-		C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sonicAPIClientTests.m; sourceTree = "<group>"; };
 		C22FD2E516372672009DA241 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C2B0E97016EA1DB800508DE2 /* SDSonicAPIProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSonicAPIProvider.h; sourceTree = "<group>"; };
 		C2B0E97116EA1DB800508DE2 /* SDSonicAPIProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSonicAPIProvider.m; sourceTree = "<group>"; };
@@ -90,7 +84,6 @@
 			children = (
 				C22FD2E516372672009DA241 /* CFNetwork.framework */,
 				C22FD2B716370A62009DA241 /* sonicAPIClient */,
-				C22FD2D416370A63009DA241 /* sonicAPIClientTests */,
 				C22FD2B016370A62009DA241 /* Frameworks */,
 				C22FD2AE16370A62009DA241 /* Products */,
 			);
@@ -153,25 +146,6 @@
 				C2B0E97716EA230A00508DE2 /* SDSonicAPITask.m */,
 			);
 			name = sonicAPIInterface;
-			sourceTree = "<group>";
-		};
-		C22FD2D416370A63009DA241 /* sonicAPIClientTests */ = {
-			isa = PBXGroup;
-			children = (
-				C22FD2DA16370A63009DA241 /* sonicAPIClientTests.h */,
-				C22FD2DB16370A63009DA241 /* sonicAPIClientTests.m */,
-				C22FD2D516370A63009DA241 /* Supporting Files */,
-			);
-			path = sonicAPIClientTests;
-			sourceTree = "<group>";
-		};
-		C22FD2D516370A63009DA241 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C22FD2D616370A63009DA241 /* sonicAPIClientTests-Info.plist */,
-				C22FD2D716370A63009DA241 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22FD2D916370A63009DA241 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22FD2DC16370A63009DA241 /* sonicAPIClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +296,6 @@
 				C22FD2C716370A63009DA241 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		C22FD2D716370A63009DA241 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C22FD2D816370A63009DA241 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

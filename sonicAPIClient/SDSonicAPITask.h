@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SDSonicAPIFile.h"
 
 @interface SDSonicAPITask: NSObject
 {    
@@ -28,11 +27,11 @@
     
 }
 
-@property(nonatomic)    enum Task_t taskType_;
-@property(retain)       SDSonicAPIFile* file_;
+@property(atomic)    enum Task_t taskType_;
+@property(retain)    NSString*   filePath_;
 
 + (NSString*) getURLForTask:(enum Task_t)task_t;
-- (id) initTaskWithFile:(SDSonicAPIFile*) file;
+- (id) initTaskWithPath:(NSString*) file;
 - (void) setResult:(NSData*) result;
 - (NSData*) getResult;
 
@@ -43,7 +42,7 @@
     NSData* fileData_;
 }
 
-- (id) initTaskWithFile:(SDSonicAPIFile*) file;
+- (id) initTaskWithPath:(NSString*) filePath;
 
 - (NSString*) getFileName;
 - (NSData*) getFileRawData;
@@ -53,9 +52,17 @@
 
 @interface SDSonicAPIDownloadFileTask: SDSonicAPITask
 
-@property (nonatomic) NSString* fileID_;
+@property (assign, nonatomic) NSString* fileID_;
 
 - (id) init;
 - (id) initWithFileID:(NSString*) fileID;
+
+@end
+
+@interface SDSonicAPIAnalyzeFileTask: SDSonicAPITask
+
+@property (assign, nonatomic) NSString* fileID_;
+
+- (id) initWithFileID:(NSString*) fileID analyzeTask: (enum Task_t*) task;
 
 @end

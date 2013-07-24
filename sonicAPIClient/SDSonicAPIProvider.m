@@ -12,34 +12,41 @@
 
 @implementation SDSonicAPIProvider
 
--(void) doTask:(SDSonicAPITask*)task inform:(id <SDSonicAPITask_CallbackDelegate>) delegate
+-(NSMutableURLRequest*) buildRequest:(SDSonicAPITask*)task
 {
-    currentTask_ = task;
-    currentDelegate_ = delegate;
-    
+    //build url
     NSString* url = [[NSString alloc] initWithString: baseURL_];
     url = [url stringByAppendingString:[SDSonicAPITask getURLForTask:[currentTask_ taskType_]]];
     url = [url stringByAppendingString:@"?access_id="];
     url = [url stringByAppendingString: accessID_];
-   
+    
+    if( ([task taskType_] != Task_Upload_File) && [currentTask_ respondsToSelector:@selector(fileID_)])
+    {
+        url = [url stringByAppendingString:@"&input_file="];
+        url = [url stringByAppendingString: [currentTask_ fileID_]];
+    }
+
+    //build request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     
-    NSData* postData = [self buildRequestBody:currentTask_];
-    // build post data and append it to http request
-    [request setHTTPBody: postData ];
+    //if file upload task at binary data
+    if([task taskType_] == Task_Upload_File)
+    {
+        NSData* postData = [self buildHTTPBody:currentTask_];
+        // build post data and append it to http request
+        [request setHTTPBody: postData ];
     
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary_];
-    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    NSString *contentLength = [NSString stringWithFormat:@"%ld", [postData length]];
-    [request addValue:contentLength forHTTPHeaderField: @"Content-Length"];
-    
-    [connectionHandler_ sendRequest:request];
-
+        NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary_];
+        [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+        NSString *contentLength = [NSString stringWithFormat:@"%ld", [postData length]];
+        [request addValue:contentLength forHTTPHeaderField: @"Content-Length"];
+    }
+    return request;
 }
 
-- (NSData*) buildRequestBody:(SDSonicAPITask*)task
+- (NSData*) buildHTTPBody:(SDSonicAPITask*)task
 {
     NSMutableData *postData = [[NSMutableData alloc] init];
     
@@ -60,6 +67,26 @@
     return postData;
 }
 
+-(NSData*) doTask:(SDSonicAPITask*)task
+{
+    currentTask_ = task;
+    currentDelegate_ = nil;
+    
+    NSMutableURLRequest* request = [self buildRequest:task];
+    NSData* result = [connectionHandler_ sendRequestSynchronously:request];
+    
+    return result;    
+}
+
+-(void) doTask:(SDSonicAPITask*)task inform:(id <SDSonicAPITask_CallbackDelegate>) delegate
+{
+    currentTask_ = task;
+    currentDelegate_ = delegate;
+    
+    NSMutableURLRequest* request = [self buildRequest:task];
+    [connectionHandler_ sendRequestAsynchronously:request];
+}
+
 -(id) init
 {
     if(self = [super init])
@@ -74,6 +101,7 @@
 
 -(id) initWithAccessID:(NSString*)accessID
 {
+    NSLog(@"Init SonicAPIProvider");
     if(self = [self init])
     {
         self->accessID_ = accessID;
@@ -87,9 +115,30 @@
     [currentDelegate_ taskSuccessfullyDone: currentTask_];
 }
 
-- (void) failedRequestResponse
+- (void)  failedRequestResponse:(NSString*) errorDescription;
+
 {
-    [currentDelegate_ taskFailed:currentTask_ withError:@"fuck off  "];
+    [currentDelegate_ taskFailed:currentTask_ withError: errorDescription];
+}
+
+- (NSString*) getValueFromXMLData: (NSData*) xmlData forKey:(NSString*)key
+{
+    
+    NSError* xmlParseError;
+    NSXMLDocument* xmlResult = [[NSXMLDocument alloc] initWithData:xmlData options:NSXMLDocumentTidyXML error:&xmlParseError];
+    
+    NSArray* childs = [[xmlResult rootElement] children];
+    
+    for( NSXMLElement* child in childs )
+    {
+        NSXMLNode* node;
+        if( (node = [child attributeForName: key]) != nil )
+        {
+            return [node objectValue];
+        }
+    }
+    
+    return @"";
 }
 
 @end

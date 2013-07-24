@@ -20,10 +20,20 @@
     return self;
 }
 
-- (void) sendRequest:(NSMutableURLRequest*) request
+- (void) sendRequestAsynchronously:(NSMutableURLRequest*) request
 {
     connection_ =  [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
+
+- (NSData*) sendRequestSynchronously:(NSMutableURLRequest*) request
+{
+    NSURLResponse* response;
+    NSError* connectionError;
+    NSData* result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error: &connectionError];
+    
+    return result;
+}
+
 - (NSInputStream *)connection:(NSURLConnection *)connection needNewBodyStream:(NSURLRequest *)request
 {
     return NULL;
@@ -38,7 +48,7 @@
 {
     if ( responseDelegate_ != NULL)
     {
-        [responseDelegate_  failedRequestResponse];
+        [responseDelegate_  failedRequestResponse: [error domain]];
     }
 }
 

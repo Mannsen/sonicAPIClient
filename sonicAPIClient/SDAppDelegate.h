@@ -16,6 +16,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) SDSonicAPIFile* file;
 
 -(void) taskSuccessfullyDone: (SDSonicAPITask*) task;
 -(void) taskFailed: (SDSonicAPITask*) task withError:(NSString*) errorDescription;

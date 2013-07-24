@@ -18,9 +18,14 @@
 
 @end
 
-
 @interface SDSonicAPIProvider : NSObject <SDSonicAPIConnectionHandler_CallbackDelegate>
 {
+    enum Error_t
+    {
+        Error_No_Connection,
+        Error_Unknown
+    };
+    
     NSString* baseURL_;
     NSString* accessID_;
     NSString *boundary_;
@@ -33,13 +38,17 @@
 - (id)      init;
 - (id)      initWithAccessID:(NSString*)accessID;
 
+- (NSData*) doTask:(SDSonicAPITask*)task;
 - (void)    doTask:(SDSonicAPITask*)task inform:(id <SDSonicAPITask_CallbackDelegate>) delegate;
 
-// THIS SHOULD BE PRIVATE - (NSData*) buildRequestBody:(SDSonicAPITask*)task;
+// THIS SHOULD BE PRIVATE - (NSMutableURLRequest*) buildRequest:(SDSonicAPITask*)task;
+// THIS SHOULD BE PRIVATE - (NSData*) buildHTTPBody:(SDSonicAPITask*)task;
 
 // connection handler response callback
 - (void)    sucessfullyRequestResponse:(NSData *) responseData;
-- (void)    failedRequestResponse;
+- (void)    failedRequestResponse: (NSString*) errorDescription;
+
+- (NSString*) getValueFromXMLData: (NSData*) xmlData forKey:(NSString*)key;
 
 
 @end

@@ -11,7 +11,7 @@
 @protocol SDSonicAPIConnectionHandler_CallbackDelegate <NSObject>
 
 -(void) sucessfullyRequestResponse: (NSData*) responseData;
--(void) failedRequestResponse;
+-(void) failedRequestResponse: (NSString*) errorDescription;
 
 @end
 
@@ -25,7 +25,8 @@
 }
 
 - (id) initWithResponseDelegate:(id<SDSonicAPIConnectionHandler_CallbackDelegate>) delegate;
-- (void)sendRequest:(NSMutableURLRequest*) request;
+- (void)sendRequestAsynchronously:(NSMutableURLRequest*) request;
+- (NSData*)sendRequestSynchronously:(NSMutableURLRequest*) request;
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
